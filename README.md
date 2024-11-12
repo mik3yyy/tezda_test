@@ -39,7 +39,6 @@ A simple and elegant Flutter e-commerce application using [FakeStoreAPI](https:/
 - **Riverpod**: State management for a scalable and maintainable architecture.
 - **Hive**: Local storage for caching user data and favorite products.
 - **FakeStoreAPI**: Backend for product data and user authentication.
-- **Dark Mode/Light Mode**: Themed UI for a seamless experience.
 
 ---
 
