@@ -4,32 +4,46 @@ A simple and elegant Flutter e-commerce application using [FakeStoreAPI](https:/
 
 ---
 
-## **Features**
+## **Design Choices**
 
-1. **Efficient Data Handling**:
-   - Fetch and display product data from the mock API seamlessly.
-   - Handle smooth scrolling and optimized image loading.
+1. **Onboarding with PageView**:
+   - I used `PageView` for the onboarding screen to allow users to easily swipe left and right, making it intuitive to navigate through the details of the application.
+   - This approach ensures that users can quickly learn about the app’s features without feeling overwhelmed.
 
-2. **Secure Authentication**:
-   - User registration and login with session expiration handling.
-   - Manage user authentication state securely using Hive Storage.
+2. **Login Screen Placement**:
+   - After the onboarding screen, the user is directed to the login screen rather than the sign-up screen. This decision was made because most users are likely to log in rather than sign up, as sign-ups typically happen only once.
 
-3. **Product Management**:
-   - View a list of products fetched from the API.
-   - Navigate between product listing and detailed product views.
-   - Mark products as favorites and save them locally using Hive.
+3. **Product Listing with ListTile**:
+   - The home screen displays products using `ListTile` instead of a `GridView`. This decision was driven by the length of many product names, which are often too long for a grid format. Using `ListTile` ensures the titles are fully visible, reducing the need for users to open the product detail page just to read the product name.
 
-4. **User Profile Management**:
-   - Intuitive and visually appealing profile screen.
-   - Update user details with ease.
-   - Manage and display user-specific functionality.
+4. **Hero Animation for Product Images**:
+   - I implemented `Hero` animations on product images to add a touch of polish and provide a smooth transition between the home screen and the product detail screen. This enhances the user experience by making navigation feel more dynamic and engaging.
 
-5. **Dark Mode and Light Mode**:
-   - Full support for both dark and light themes for a better user experience.
+5. **FadeTransition for Main Screens**:
+   - A `FadeTransition` was added to the main screens to create a consistent and smooth visual theme as users navigate through the app.
 
-6. **Modern UI/UX**:
-   - Clean and user-friendly design for product detail and profile management screens.
-   - Smooth transitions between screens using Riverpod for state management.
+6. **Log-Out Confirmation Dialog**:
+   - An "Are you sure?" dialog box was implemented for the log-out action. This prevents accidental log-outs and gives users a chance to rethink their decision.
+
+7. **Color Palette and Branding**:
+   - Yellow was chosen as the primary color for Tezda’s branding. Yellow is an excellent choice for e-commerce applications because:
+     - It is associated with optimism, energy, and attention.
+     - It draws the user’s focus, making CTAs (Call-to-Actions) like "Buy Now" or "Add to Cart" more prominent.
+
+---
+
+## **Challenges Faced**
+
+1. **Profile Management**:
+   - The API login endpoint only returns a token without any user details.
+   - Additionally, the API does not provide a way to use the token to fetch user information. To address this, I explored the API documentation, identified the user ID, and used the "Get Single User" endpoint to fetch the user's profile details.
+
+2. **Session Management**:
+   - The API did not provide a session duration to manage user sessions. I integrated my own session control mechanism during login by associating a token expiration time with the user’s session.
+
+3. **API Constraints on Geolocation**:
+   - The API's sign-up endpoint required latitude (`lat`) and longitude (`long`) fields for the user’s address.
+   - Since integrating geolocation services was beyond the project’s scope, I used static values for these fields. However, I successfully demonstrated my ability to handle data input from the user interface to the backend.
 
 ---
 
@@ -71,58 +85,6 @@ A simple and elegant Flutter e-commerce application using [FakeStoreAPI](https:/
    - Run `flutter doctor` to check for missing dependencies or configurations.
 
 ---
-
-## **App Overview**
-
-### **Authentication**
-- Users can register, log in, and manage their sessions.
-- Secure state management ensures authentication tokens are properly handled.
-
-### **Products**
-- View a list of products fetched dynamically from the API.
-- Tap on a product to see detailed information such as description, price, and category.
-
-### **Favorites**
-- Mark products as favorites with a single tap.
-- Favorites are stored locally using Hive for offline access.
-
-### **Profile Management**
-- View and update user details like username, email, and address.
-
-### **UI/UX**
-- Modern design with smooth transitions.
-- Fully functional dark mode for better accessibility.
-
----
-
-## **Core Functionality**
-
-1. Fetching and displaying data efficiently from the FakeStoreAPI.
-2. Seamless navigation between product listings and details.
-3. Visually appealing UI for product detail and user profile screens.
-4. Secure authentication mechanisms to protect user data.
-5. Handling session expiration and managing authentication state.
-6. Storing user-specific preferences, such as favorites, using Hive.
-7. Light and dark mode toggle for an enhanced user experience.
-
----
-
-## **Contributing**
-
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix:
-   ```bash
-   git checkout -b feature-name
-   ```
-3. Commit your changes:
-   ```bash
-   git commit -m "Add feature name"
-   ```
-4. Push your branch:
-   ```bash
-   git push origin feature-name
-   ```
-5. Submit a pull request for review.
 
 
 
