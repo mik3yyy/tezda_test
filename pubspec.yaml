@@ -24,6 +24,7 @@ dependencies:
   auto_size_text: ^3.0.0
   fade_shimmer: ^2.2.0
   dartz: ^0.10.1
+  flutter_dotenv: ^5.2.1
 
 
 dev_dependencies:
@@ -47,4 +48,5 @@ flutter:
   assets:
     - application/assets/images/
     - application/assets/fonts/
+    - application/
 

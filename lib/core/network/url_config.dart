@@ -1,3 +1,5 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 enum UrlEnvironment { development, production }
 
 class UrlConfig {
@@ -10,9 +12,9 @@ class UrlConfig {
   static get _baseUrl {
     switch (_environment) {
       case UrlEnvironment.development:
-        return 'https://fakestoreapi.com';
+        return dotenv.env['BASE_URL'];
       case UrlEnvironment.production:
-        return 'https://fakestoreapi.com';
+        return dotenv.env['BASE_URL'];
     }
   }
 }

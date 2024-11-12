@@ -38,7 +38,7 @@ final authRepositoryProvider = Provider<AuthenticationRepository>((ref) {
 });
 
 final networkProvider = Provider((ref) {
-  return Network();
+  return Network(showLog: true);
 });
 
 final authNotifierProvider =
