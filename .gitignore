@@ -38,6 +38,6 @@ ios/Flutter/App.framework
 .dart_tool/
 .packages
 
-# Environment variable files
-application/.env
-application/.env.*
+# # Environment variable files
+# application/.env
+# application/.env.*
